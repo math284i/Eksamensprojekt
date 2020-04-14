@@ -8,7 +8,7 @@ class MyApp(App):
 
         """Returns a label with the text "Hello world"""
         #return Label(text='Hello world')
-        mapview = MapView(zoom=11, lat=50.6394, lon=3.057)
+        mapview = MapView(zoom=11, lat=56.040371, lon=12.579490)
         return mapview
 
 if __name__ == '__main__':

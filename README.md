@@ -21,3 +21,5 @@ Design på appen:
 https://gyazo.com/90eaccce99160b5e74304dd365729792
 
 Vi er færdige med rapporten lige pt. og er begyndte at kode. Her har vi fået kivy til at virke og fået et verdenskort til at virke.
+
+Vi er begyndt at arbejde på at få sat vores widget op

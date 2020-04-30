@@ -1,10 +1,11 @@
 from Dyberg.databaseHandler import DBFunctions
-
+import time
 
 class Logic():
     """Creating init function, where we can declare the otherr class, this class will be pulling from"""
     def __init__(self, parent=None):
         self.DBFunctions = DBFunctions(self) #Bliver ikke brugt pt
+        self.MyApp = parent
 
     def testLogic(self):
         DBFunctions.testPrint(self)
@@ -58,3 +59,14 @@ class Logic():
         2) if it is, make the alarm button blink red, and play alarm
 
         """
+
+        for i in range(5):
+            self.MyApp.button2.disabled = False
+            time.sleep(1)
+            self.MyApp.button2.disabled = True
+
+    def testAlert(self,WhatisThis):
+        print(WhatisThis)
+        self.MyApp.button2.disabled = False
+        print("stuff should change")
+

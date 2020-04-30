@@ -4,12 +4,19 @@ from kivy.uix.button import Button
 from kivy.uix.boxlayout import BoxLayout
 from kivy.garden.mapView import *
 from Dyberg.databaseHandler import DBFunctions
+import time
 from Dyberg.logic import Logic
+
+darkred = [1111111, 0, 0, 1]
+Lightred = [11111111, 0, 0, 1]
+testRed = [1, 0, 0, 1]
 
 class MyApp(App):
 
     """Building our app, normmally it would be the __init__ function"""
     def build(self): #Ville normalt være def __init__(self, parent=None):
+
+        self.logic = Logic(self)
 
         """Returns a label with the text "Hello world"""
         #return Label(text='Hello world')
@@ -25,10 +32,11 @@ class MyApp(App):
 
         """Initializing our buttons, then after connection them to functions, when they are pressed"""
         self.button1 = Button(text="One")
-        self.button1.bind(on_press=DBFunctions.testPrint)
+        #self.button1.bind(on_press=DBFunctions.testPrint)
+        self.button1.bind(on_press=self.logic.testAlert)
 
-        self.button2 = Button(text="Two")
-        self.button2.bind(on_press=Logic.testLogic)
+        self.button2 = Button(text="ALERT!", font_size=100, color=darkred, background_color=Lightred, disabled=True)
+        #self.button2.background_color = Lightred
 
         """Adding all the different stuff to our layout, in the desired order"""
         self.layout.add_widget(self.button1)

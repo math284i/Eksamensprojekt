@@ -2,7 +2,7 @@ import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import db
 
-cred = credentials.Certificate("eksamensproject-firebase-adminsdk-qsqlg-134386dbd0.json")
+cred = credentials.Certificate("Dyberg/eksamensproject-firebase-adminsdk-qsqlg-134386dbd0.json")
 firebase_admin.initialize_app(cred, {
     'databaseURL': 'https://eksamensproject.firebaseio.com/'
 })

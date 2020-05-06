@@ -1,14 +1,13 @@
 from Dyberg.databaseHandler import DBFunctions
 import time
+import math
 
 class Logic():
     """Creating init function, where we can declare the otherr class, this class will be pulling from"""
     def __init__(self, parent=None):
-        self.DBFunctions = DBFunctions(self) #Bliver ikke brugt pt
+        self.DBFunctions = DBFunctions(self)
         self.MyApp = parent
 
-    def testLogic(self):
-        DBFunctions.testPrint(self)
 
     def FotoVognSpotted(self, lat, lon): #takes 2 argument, the gps koods
         """What should it be doing?
@@ -33,6 +32,21 @@ class Logic():
                 return
         """
 
+        #Call database, and check if cods are already there
+
+        """Koordinat system, it contains lat + lon, ad "." is replaced with "X" """
+
+        lat = str(round(lat, 3))
+        lon = str(round(lon, 3))
+
+        koods = lat + lon
+        print(koods)
+        """We need to remove "." because we cant use special characters, for database name, so we use x instead"""
+        koods = koods.replace(".", "X")
+        print("new koods: " + str(koods))
+        self.DBFunctions.add(koods)
+
+
     def PlaceFotoVogn(self):
         """What should it be doing?
 
@@ -51,7 +65,7 @@ class Logic():
 
         """
 
-    def Alert(self, ActiveKods, PersonLat, PersonLon):
+    def Alert(self, ActiveKods):
         """What should it be doing?
 
         1) check if the personKods is within a sertain range, of the active kods
@@ -70,3 +84,9 @@ class Logic():
         self.MyApp.button2.disabled = False
         print("stuff should change")
 
+
+    def moveMap(self, newLat, newLon):
+        self.lat = newLat
+        self.lon = newLon
+
+        self.MyApp.mapview.center_on(self.lat, self.lon)

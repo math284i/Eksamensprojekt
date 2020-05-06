@@ -9,51 +9,53 @@ firebase_admin.initialize_app(cred, {
 
 class DBFunctions():
     def __init__(self, parent=None):
-        pass
-
-    def testPrint(self):
-        print("Det virker")
+        self.minimumVisited = 4
+        self.Logic = parent
 
     def get(self, koordinater):
         self.ref = db.reference('koordinater/' + str(koordinater))
         self.a = self.ref.get()
         return self.a
 
+
     def get_all(self):
         self.ref = db.reference('koordinater/')
         self.a = self.ref.get()
         return self.a
 
+
     def add(self, koordinater, visited = 1, active = 0):
         self.ref = db.reference('koordinater/')
         if not self.get(koordinater):
-            newKod = self.ref.child(str(koordinater))
-            newKod.update({
+            #print(koordinater)
+            self.ref.update({
                 "visited" : visited,
                 "active" : active
             })
 
             print("this koods arent therre")
 
-            #ref.update({
-           #     str(key): str(value)
-           # })
+        elif self.get(koordinater):
+            self.values = self.get(koordinater)
+            newVisit = int(self.values.pop("visited")) + 1
+
+            if newVisit > self.minimumVisited:
+                self.update(koordinater, "active", 1)
+                self.Logic.Alert(koordinater)
+
+            self.update(koordinater, "visited", newVisit)
+
 
     def update(self, koordinater, key, value):
-        ref = db.reference('koordinater/' + str(koordinater))
+        self.ref = db.reference('koordinater/' + str(koordinater))
         if self.get(koordinater):
             print("Update called found something to updpate")
-
+            self.ref.update({
+                str(key): int(value)
+            })
 
 
     def delete(self, koordinater):
         if self.get(id):
             ref = db.reference('koordinater/' + str(koordinater))
             ref.delete()
-
-
-#DBFunctions().add(201082527824347136, "Dyberg")
-#DBFunctions().add(330761716386234369, "Rune")
-#DBFunctions().add(184896015218900992, "Lohmann")
-
-#DBFunctions().add(1235)

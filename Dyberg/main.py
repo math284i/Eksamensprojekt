@@ -21,8 +21,9 @@ class MyApp(App):
         """Returns a label with the text "Hello world"""
         #return Label(text='Hello world')
         """Creating MapView, which let us determ, zoom, lat and lon, essentiel it would be pulling from gps signlas"""
-        self.mapview = MapView(zoom=11, lat=56.0394, lon=12.457)
-        print(self.mapview.__dir__())
+        self.mapview = MapView(zoom=11, lat=56.03940, lon=12.457) #56.0394 , 12.457
+        #print(self.mapview.__dir__())
+        print(self.mapview.lat)
 
         self.foto = MapMarker(lat=56.0394, lon=12.457)
         self.mapview.add_marker(self.foto)
@@ -33,7 +34,7 @@ class MyApp(App):
         """Initializing our buttons, then after connection them to functions, when they are pressed"""
         self.button1 = Button(text="One")
         #self.button1.bind(on_press=DBFunctions.testPrint)
-        self.button1.bind(on_press=self.logic.testAlert)
+        self.button1.bind(on_press=lambda dt: self.logic.FotoVognSpotted(self.mapview.lat, self.mapview.lon))
 
         self.button2 = Button(text="ALERT!", font_size=100, color=darkred, background_color=Lightred, disabled=True)
         #self.button2.background_color = Lightred

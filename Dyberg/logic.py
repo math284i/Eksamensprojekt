@@ -47,11 +47,13 @@ class Logic():
         print("new koods: " + str(koods))
         self.DBFunctions.add(koods)
 
+    """'decoding' the system we made earlier, from koords to lat and lon"""
     def getLatLon(self, koords):
         koords = koords.replace("X", ".").replace("H", " ")
         lat, lon = koords.split(" ")
         return lat, lon
 
+    """Placing all photovagens all ready in db at startup"""
     def PlaceFotoVogn(self):
         """What should it be doing?
 
@@ -71,18 +73,10 @@ class Logic():
                 self.foto = MapMarker(lat=self.latVogn, lon=self.lonVogn)
                 self.MyApp.mapview.add_marker(self.foto)
 
-
+    """Its called, if a koord gets active, so we should place marker and animate our alert button"""
     def Alert(self, ActiveKods):
-        """What should it be doing?
-
-        1) check if the personKods is within a sertain range, of the active kods
-
-        2) if it is, make the alarm button blink red, and play alarm
-
-        """
-
-        print("Active kods: " + str(ActiveKods))
-        """Now by using the system we implemented earlier we can call system with the kods and get lat and lon returned"""
+        """Now by using the system we implemented earlier we can call
+         system with the kods and get lat and lon returned"""
         self.latAlert, self.lonAlert = self.getLatLon(ActiveKods)
 
         """Since our Placefotovogn only runs at initialization,
@@ -97,6 +91,7 @@ class Logic():
     def anmiate_the_button(self, widget, *args):
 
         anim = Animation(background_color=self.MyApp.Lightred)
+        """7 is the duration of Alert, opacity means if we can see it, duration, if its instant or faded"""
         for i in range(7): #Duration of Alert
             anim += Animation(opacity=1, duration=.5)
             anim += Animation(opacity=0.2, duration=.5)

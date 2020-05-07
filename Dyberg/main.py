@@ -2,10 +2,7 @@ from kivy.app import App
 from kivy.garden.mapview import MapView
 from kivy.uix.button import Button
 from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.anchorlayout import AnchorLayout
 from kivy.garden.mapView import *
-from kivy.garden.mapView import MapMarker
-from kivy.clock import Clock
 from Dyberg.databaseHandler import DBFunctions
 import time
 from Dyberg.logic import Logic
@@ -17,10 +14,10 @@ from Dyberg.menFuncs import MenuFunctions
 class MyApp(App):
 
     """Building our app, normmally it would be the __init__ function"""
-    def build(self): #Ville normalt være def __init__(self, parent=None):
+    def build(self):
 
+        """Instantiate children classes"""
         self.logic = Logic(self)
-        self.dropdown = DropDown(size_hint_x=0.2)
         self.MenuFuncs = MenuFunctions(self)
 
         self.gpsHelper = GpsHelper()
@@ -41,28 +38,35 @@ class MyApp(App):
 
         """Initializing our buttons, then after connection them to functions, when they are pressed"""
         self.buttonAnmeld = Button(text="ANMELD!", font_size=100, color=self.black, background_color=self.green)
-
-        self.buttonAnmeld.bind(on_press=lambda dt: self.logic.FotoVognSpotted(self.mapview.lat, self.mapview.lon))
-
         self.buttonAlert = Button(text="ALARM!", font_size=200, color=self.black,
                                   background_color=self.Lightred, disabled=True, opacity=0)
 
-        self.top_layout = AnchorLayout(anchor_x="left", anchor_y="top")
+        """Binding our botton to a specific function, lambda is so the function wont get called when iniialized"""
+        self.buttonAnmeld.bind(on_press=lambda dt: self.logic.FotoVognSpotted(self.mapview.lat, self.mapview.lon))
 
-        notes = ['  Reset Zoom', 'Zoom In', 'Zoom Out','  Increase LAT', '  Decrease LAT', '  Increase LON',
+
+        """Creating the dropdown menu"""
+        self.dropdown = DropDown(size_hint_x=0.2)
+
+        """Labels"""
+        labels = ['  Reset Zoom', '  Zoom In', '  Zoom Out', ' Increase LAT', '  Decrease LAT', '  Increase LON',
                  '  Decrease LON', "  Exit"]
 
+        """Functions"""
         functions = [self.MenuFuncs.resetZoom, self.MenuFuncs.zoomIn, self.MenuFuncs.zoomOut,
                      self.MenuFuncs.IncreaseLat, self.MenuFuncs.DecreaseLat,
                      self.MenuFuncs.IncreaseLon, self.MenuFuncs.DecreaseLon, self.MenuFuncs.exit]
 
-        for note, func in zip(notes, functions):
-            self.btn = Button(text=note, size_hint_y=None, height=45, halign="left", valign= "middle")
+        """Creating buttons for each label, give them their corresponding function, allign them at  left,
+        and last, adding them to the dropdown widget"""
+        for label, func in zip(labels, functions):
+            self.btn = Button(text=label, size_hint_y=None, height=45, halign="left", valign= "middle")
             self.btn.bind(size=self.btn.setter('text_size'))
             self.btn.bind(on_release=func)
 
             self.dropdown.add_widget(self.btn)
 
+        """Creating our menuMainButton, also alligned at left"""
         self.mainbutton = Button(text='  Menu', size_hint_y=None, height=35,
                                  halign="left", valign= "middle", size_hint_x=0.2)
 

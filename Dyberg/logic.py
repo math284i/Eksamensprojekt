@@ -97,9 +97,9 @@ class Logic():
     def anmiate_the_button(self, widget, *args):
 
         anim = Animation(background_color=self.MyApp.Lightred)
-        for i in range(10):
-            anim += Animation(opacity=1, duration=.2)
-            anim += Animation(opacity=0.2, duration=.2)
+        for i in range(7): #Duration of Alert
+            anim += Animation(opacity=1, duration=.5)
+            anim += Animation(opacity=0.2, duration=.5)
         anim += Animation(opacity=0, duration=.2)
         anim += Animation(background_color=self.MyApp.Lightred)
         anim.start(widget)
@@ -110,3 +110,4 @@ class Logic():
         self.lon = newLon
 
         self.MyApp.mapview.center_on(self.lat, self.lon)
+

@@ -35,7 +35,7 @@ class DBFunctions():
 
     def add(self, koordinater, visited = 1, active = 0):
         """Connect to db, check if koords are already there, if they aren't add them
-            If they are there, add 1 to visit, and check if visit is above minimum, then call logic.Alert"""
+            If they are there, add 1 to visit, and check if visit is above minimum, then call logic.DBAlert"""
 
         self.ref = db.reference('koordinater/')
         if not self.get(koordinater):
@@ -53,7 +53,7 @@ class DBFunctions():
 
             if newVisit > self.minimumVisited:
                 self.update(koordinater, "active", 1)
-                self.Logic.Alert(koordinater)
+                self.Logic.DBAlert(koordinater)
 
             self.update(koordinater, "visited", newVisit)
 

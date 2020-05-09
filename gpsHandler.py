@@ -9,7 +9,7 @@ class GpsHandler():
         self.MyApp = parent
         self.my_lat = self.MyApp.mapview.lat
         self.my_lon = self.MyApp.mapview.lon
-        self.androidBool = True
+        self.androidBool = False
 
     def run(self):
         """This function is called when the class is called, GpsHandler.run()"""
@@ -28,14 +28,14 @@ class GpsHandler():
 
         # Configure GPS
         if platform == 'android' or platform == 'ios':
-            self.androidBool = False
+            self.androidBool = True
             from plyer import gps
             gps.configure(on_location=self.updateGpsLatLon,
                           on_status=self.onAuthStatus)
             gps.start(minTime=1000, minDistance=0)
 
         else:
-            self.androidBool = True
+            self.androidBool = False
 
 
     def updateGpsLatLon(self, *args, **kwargs):

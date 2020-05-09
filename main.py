@@ -9,6 +9,7 @@ from gpsHandler import GpsHandler
 from menFuncs import MenuFunctions
 from kivy.garden.mapview import MapMarker
 from kivy.clock import Clock
+import math
 
 class MyApp(App):
     """Main class for all our kivy stuff, there is a few functions in here, update which is called in
@@ -17,13 +18,22 @@ class MyApp(App):
     def update(self, _):
         """Get gps signals, update them, if its not android, update according to center of mapview"""
 
-        if self.gpshandler.androidBool:
+        print(self.logic.placedVogne)
+
+        """Check, if its an andorid device, if it is, gps signals are recieved"""
+        if not self.gpshandler.androidBool:
             self.latitude = self.mapview.lat
             self.longitude = self.mapview.lon
 
         else:
             self.latitude = self.gpshandler.my_lat
             self.longitude = self.gpshandler.my_lon
+
+        if not self.logic.alerting:
+            for i in self.logic.placedVogne:
+                print(math.fabs((float(self.latitude) - float(i[0]))))
+                if math.fabs((float(self.latitude) - float(i[0]))) < self.offset and math.fabs((float(self.longitude) - float(i[1]))) < self.offset:
+                    self.logic.Alert()
 
         self.person.lat = self.latitude
         self.person.lon = self.longitude
@@ -39,6 +49,7 @@ class MyApp(App):
 
         self.logic = Logic(self)
         self.MenuFuncs = MenuFunctions(self)
+        self.offset = 0.001
 
         """initalizing the few colors in kivy binary"""
         self.Lightred = [1111111111, 0, 0, 1]
@@ -48,7 +59,7 @@ class MyApp(App):
 
         """Creating MapView, which let us determ, zoom, lat and lon, essentiel it would be pulling from gps signlas"""
         self.mapview = MapView(zoom=15, lat=56.04, lon=12.457) #56.0394 , 12.457
-        self.person = MapMarker(lat=self.mapview.lat, lon=self.mapview.lon, source='car.png')
+        self.person = MapMarker(lat=self.mapview.lat, lon=self.mapview.lon, source='images/car.png')
         self.mapview.add_marker(self.person)
         self.gpshandler = GpsHandler(self)
         """Making a layout, as a boxlayout, making it vertical to match our desired design"""

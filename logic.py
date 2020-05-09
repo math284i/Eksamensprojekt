@@ -7,6 +7,8 @@ class Logic():
     def __init__(self, parent=None):
         self.DBFunctions = DBFunctions(self)
         self.MyApp = parent
+        self.placedVogne = []
+        self.alerting = False
 
 
     def FotoVognSpotted(self, lat, lon): #takes 2 argument, the gps koods
@@ -77,19 +79,26 @@ class Logic():
                 active = self.ALL[i].pop('active')
                 if active == 1:
                     self.latVogn, self.lonVogn = self.getLatLon(i)
-                    self.foto = MapMarker(lat=self.latVogn, lon=self.lonVogn, source='fotovogn.png')
+                    self.placedVogne.append([self.latVogn, self.lonVogn])
+                    self.foto = MapMarker(lat=self.latVogn, lon=self.lonVogn, source='images/fotovogn.png')
                     self.MyApp.mapview.add_marker(self.foto)
 
 
-    def Alert(self, ActiveKods):
+    def DBAlert(self, ActiveKods):
         """Now by using the system we implemented earlier we can call
-         system with the kods and get lat and lon returned"""
-        self.latAlert, self.lonAlert = self.getLatLon(ActiveKods)
-
-        """Since our Placefotovogn only runs at initialization,
+         system with the kods and get lat and lon returned, this function will also make a marker,
+         Since our Placefotovogn only runs at initialization,
          and there is no point in trying to place every marker again, we can just place it here"""
-        self.foto = MapMarker(lat=self.latAlert, lon=self.lonAlert, source='fotovogn.png')
+        self.latAlert, self.lonAlert = self.getLatLon(ActiveKods)
+        self.placedVogne.append([self.latAlert, self.lonAlert])
+        self.foto = MapMarker(lat=self.latAlert, lon=self.lonAlert, source='images/fotovogn.png')
         self.MyApp.mapview.add_marker(self.foto)
+
+        """Now lets alert the user"""
+        self.anmiate_the_button(self.MyApp.buttonAlert)
+
+    def Alert(self):
+        """This function is for alert alone, called when person is within a sertain range of a speed trap"""
 
         """Now lets alert the user"""
         self.anmiate_the_button(self.MyApp.buttonAlert)
@@ -97,15 +106,20 @@ class Logic():
 
     def anmiate_the_button(self, widget, *args):
         """Creating our function, for animating our alert button"""
-
+        self.alerting = True
         anim = Animation(background_color=self.MyApp.Lightred)
         """7 is the duration of Alert, opacity means if we can see it, duration, if its instant or faded"""
-        for i in range(7): #Duration of Alert
+        for i in range(5): #Duration of Alert
             anim += Animation(opacity=1, duration=.5)
             anim += Animation(opacity=0.2, duration=.5)
         anim += Animation(opacity=0, duration=.2)
         anim += Animation(background_color=self.MyApp.Lightred)
+        anim.bind(on_complete=self.animationBool)
         anim.start(widget)
+
+    def animationBool(self, widget, *args):
+        """amination on_completes need to bind to a function """
+        self.alerting = False
 
     def moveMap(self, newLat, newLon):
         """Function, to move the map and person around, according to gps menu functions"""

@@ -105,11 +105,10 @@ from kivy.properties import (
 )
 from kivy.uix.boxlayout import BoxLayout
 
-from kivymd.uix.behaviors import HoverBehavior
-from kivymd.uix.menu import MDDropdownMenu
+from kivymd.uix import HoverBehavior
+from kivymd.uix import MDDropdownMenu
 from kivymd.theming import ThemableBehavior
-import kivymd.material_resources as m_res
-
+import kivymd as m_res
 
 Builder.load_string(
     """

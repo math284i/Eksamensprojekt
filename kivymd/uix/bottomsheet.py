@@ -341,9 +341,9 @@ from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.modalview import ModalView
 
-from kivymd.uix.behaviors import BackgroundColorBehavior
-from kivymd.uix.label import MDIcon
-from kivymd.uix.list import (
+from kivymd.uix import BackgroundColorBehavior
+from kivymd.uix import MDIcon
+from kivymd.uix import (
     MDList,
     OneLineListItem,
     ILeftBody,

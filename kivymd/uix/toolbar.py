@@ -156,8 +156,8 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.core.window import Window
 from kivy.uix.floatlayout import FloatLayout
 
-from kivymd.uix.button import MDIconButton, MDFloatingActionButton
-from kivymd.uix.behaviors import (
+from kivymd.uix import MDIconButton, MDFloatingActionButton
+from kivymd.uix import (
     SpecificBackgroundColorBehavior,
     RectangularElevationBehavior,
 )

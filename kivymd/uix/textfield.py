@@ -182,7 +182,7 @@ from kivy.metrics import sp
 
 from kivymd.font_definitions import theme_font_styles
 from kivymd.theming import ThemableBehavior
-from kivymd.uix.label import MDIcon
+from kivymd.uix import MDIcon
 
 Builder.load_string(
     """

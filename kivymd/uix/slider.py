@@ -21,7 +21,7 @@ from kivy.properties import ListProperty, AliasProperty, BooleanProperty
 from kivy.utils import get_color_from_hex
 from kivy.metrics import dp
 
-from kivymd.color_definitions import colors
+from kivymd import colors
 from kivymd.theming import ThemableBehavior
 from kivy.uix.slider import Slider
 

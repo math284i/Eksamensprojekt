@@ -113,7 +113,7 @@ from kivy.properties import (
 from kivy.uix.behaviors import ButtonBehavior
 from kivy.uix.boxlayout import BoxLayout
 
-import kivymd.material_resources as m_res
+import kivymd as m_res
 from kivymd.theming import ThemableBehavior
 
 

@@ -84,7 +84,6 @@ class Example(MDApp):
 Example().run()
 """
 
-from kivy.clock import Clock
 from kivy.lang import Builder
 from kivy.properties import StringProperty, ObjectProperty, BooleanProperty
 from kivy.metrics import dp
@@ -92,12 +91,12 @@ from kivy.uix.anchorlayout import AnchorLayout
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.modalview import ModalView
 
-from kivymd.uix.card import MDCard
-from kivymd.uix.button import MDFlatButton, MDRaisedButton, MDTextButton
-from kivymd.uix.textfield import MDTextField, MDTextFieldRect
+from kivymd.uix import MDCard
+from kivymd.uix import MDFlatButton, MDRaisedButton, MDTextButton
+from kivymd.uix import MDTextField, MDTextFieldRect
 from kivymd.theming import ThemableBehavior
 from kivymd import images_path
-from kivymd.material_resources import DEVICE_IOS
+from kivymd import DEVICE_IOS
 
 
 Builder.load_string(

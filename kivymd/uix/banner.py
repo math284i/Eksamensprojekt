@@ -170,9 +170,9 @@ from kivy.properties import (
     OptionProperty,
 )
 
-from kivymd.uix.button import MDFlatButton
-from kivymd.uix.card import MDCard
-from kivymd.uix.list import (
+from kivymd.uix import MDFlatButton
+from kivymd.uix import MDCard
+from kivymd.uix import (
     ThreeLineAvatarListItem,
     TwoLineAvatarListItem,
     OneLineAvatarListItem,

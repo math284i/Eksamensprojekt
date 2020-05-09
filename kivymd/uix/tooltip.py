@@ -102,8 +102,8 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.properties import ListProperty, StringProperty, NumericProperty
 
 from kivymd.theming import ThemableBehavior
-from kivymd.uix.behaviors import HoverBehavior
-from kivymd.material_resources import DEVICE_TYPE
+from kivymd.uix import HoverBehavior
+from kivymd import DEVICE_TYPE
 
 Builder.load_string(
     """

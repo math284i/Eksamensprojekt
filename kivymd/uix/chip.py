@@ -176,7 +176,7 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.lang import Builder
 from kivy.uix.stacklayout import StackLayout
 
-from kivymd.uix.button import MDIconButton
+from kivymd.uix import MDIconButton
 from kivymd.theming import ThemableBehavior
 
 Builder.load_string(

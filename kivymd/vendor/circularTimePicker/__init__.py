@@ -48,7 +48,7 @@ from math import atan, pi, radians, sin, cos
 
 from kivy.animation import Animation
 from kivy.clock import Clock
-from kivymd.vendor.circleLayout import CircularLayout
+from kivymd.vendor import CircularLayout
 from kivy.graphics import Line, Color, Ellipse
 from kivy.lang import Builder
 from kivy.properties import (

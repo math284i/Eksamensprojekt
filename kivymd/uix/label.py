@@ -27,7 +27,7 @@ from kivy.uix.label import Label
 
 from kivymd.font_definitions import theme_font_styles
 from kivymd.theming import ThemableBehavior
-from kivymd.theming_dynamic_text import get_contrast_text_color
+from kivymd import get_contrast_text_color
 
 Builder.load_string(
     """

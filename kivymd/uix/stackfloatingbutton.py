@@ -74,7 +74,7 @@ from kivy.properties import (
 from kivy.metrics import dp
 
 from kivymd.theming import ThemableBehavior
-from kivymd.uix.card import MDCard
+from kivymd.uix import MDCard
 
 
 Builder.load_string(

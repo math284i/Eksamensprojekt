@@ -326,14 +326,14 @@ from kivy.uix.anchorlayout import AnchorLayout
 from kivy.uix.behaviors import ButtonBehavior
 from kivy.animation import Animation
 
-from kivymd.uix.behaviors.backgroundcolorbehavior import (
+from kivymd.uix import (
     SpecificBackgroundColorBehavior,
 )
-from kivymd.uix.behaviors import (
+from kivymd.uix import (
     CircularRippleBehavior,
     RectangularRippleBehavior,
 )
-from kivymd.uix.behaviors import (
+from kivymd.uix import (
     CommonElevationBehavior,
     RectangularElevationBehavior,
     CircularElevationBehavior,

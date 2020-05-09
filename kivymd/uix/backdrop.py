@@ -305,7 +305,7 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.floatlayout import FloatLayout
 
 from kivymd.theming import ThemableBehavior
-from kivymd.uix.card import MDCard
+from kivymd.uix import MDCard
 from kivymd.uix.toolbar import MDToolbar
 
 Builder.load_string(

@@ -158,7 +158,7 @@ from kivy.properties import NumericProperty, StringProperty
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.screenmanager import ScreenManager
 
-from kivymd.uix.card import MDCard
+from kivymd.uix import MDCard
 from kivymd.uix.toolbar import MDToolbar
 
 Builder.load_string(

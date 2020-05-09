@@ -33,9 +33,8 @@ from kivy.event import EventDispatcher
 from kivy.utils import get_color_from_hex
 from kivy.atlas import Atlas
 
-from kivymd.color_definitions import colors, palette, hue
-from kivymd.font_definitions import theme_font_styles  # Fonts will be loaded
-from kivymd.material_resources import DEVICE_TYPE, DEVICE_IOS
+from kivymd import colors, palette, hue
+from kivymd import DEVICE_TYPE, DEVICE_IOS
 from kivymd import images_path
 
 

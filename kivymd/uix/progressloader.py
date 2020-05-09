@@ -97,7 +97,7 @@ from kivy.network.urlrequest import UrlRequest
 from kivy.lang import Builder
 from kivy.properties import StringProperty, ObjectProperty, BooleanProperty
 
-from kivymd.uix.card import MDCard
+from kivymd.uix import MDCard
 
 Builder.load_string(
     """

@@ -124,17 +124,17 @@ from kivy.properties import (
     OptionProperty,
 )
 
-import kivymd.material_resources as m_res
+import kivymd as m_res
 from kivymd import images_path
-from kivymd.uix.list import (
+from kivymd.uix import (
     ILeftBodyTouch,
     ILeftBody,
     IRightBody,
     IRightBodyTouch,
 )
-from kivymd.uix.button import MDIconButton
+from kivymd.uix import MDIconButton
 from kivymd.font_definitions import theme_font_styles
-from kivymd.uix.behaviors import (
+from kivymd.uix import (
     RectangularRippleBehavior,
     CircularRippleBehavior,
 )

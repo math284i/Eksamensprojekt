@@ -164,9 +164,9 @@ from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.image import Image
 
-import kivymd.material_resources as m_res
-from kivymd.uix.behaviors import RectangularRippleBehavior
-from kivymd.uix.button import MDIconButton
+import kivymd as m_res
+from kivymd.uix import RectangularRippleBehavior
+from kivymd.uix import MDIconButton
 from kivymd.theming import ThemableBehavior
 from kivymd.font_definitions import theme_font_styles
 

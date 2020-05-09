@@ -136,11 +136,11 @@ from kivy.metrics import dp
 from kivy.core.window import Window
 from kivy.uix.widget import Widget
 
-from kivymd.uix.button import MDIconButton
-from kivymd.uix.menu import MDDropdownMenu
+from kivymd.uix import MDIconButton
+from kivymd.uix import MDDropdownMenu
 
-from kivymd.uix.behaviors import RectangularElevationBehavior
-from kivymd.uix.list import ILeftBody
+from kivymd.uix import RectangularElevationBehavior
+from kivymd.uix import ILeftBody
 from kivymd.theming import ThemableBehavior
 
 Builder.load_string(

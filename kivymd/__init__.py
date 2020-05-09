@@ -31,5 +31,3 @@ images_path = os.path.join(path, f"images{os.sep}")
 
 Logger.info(f"KivyMD: v{__version__}")
 
-import kivymd.factory_registers
-from kivymd.tools.packaging.pyinstaller import hooks_path

@@ -133,7 +133,7 @@ from kivy.lang import Builder
 from kivy.properties import ObjectProperty, StringProperty, NumericProperty
 from kivy.uix.floatlayout import FloatLayout
 
-from kivymd.uix.button import MDFlatButton
+from kivymd.uix import MDFlatButton
 
 Builder.load_string(
     """

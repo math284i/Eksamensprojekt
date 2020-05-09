@@ -37,15 +37,15 @@ from kivy.clock import Clock
 from kivy.core.window import Window
 from kivy.utils import get_color_from_hex
 
-from kivymd.uix.label import MDLabel
-from kivymd.uix.button import MDIconButton
+from kivymd.uix import MDLabel
+from kivymd.uix import MDIconButton
 from kivymd.theming import ThemableBehavior
-from kivymd.uix.behaviors import (
+from kivymd.uix import (
     SpecificBackgroundColorBehavior,
     CircularRippleBehavior,
     RectangularElevationBehavior,
 )
-from kivymd.color_definitions import colors, palette
+from kivymd import colors, palette
 
 Builder.load_string(
     """
@@ -949,7 +949,7 @@ class MDThemePicker(
 
 if __name__ == "__main__":
     from kivymd.app import MDApp
-    from kivymd.theming import ThemeManager
+
 
     class ThemePickerApp(MDApp):
         def build(self):

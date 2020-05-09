@@ -157,7 +157,7 @@ from kivy.lang import Builder
 from kivy.uix.widget import Widget
 from kivy.animation import Animation
 
-from kivymd.uix.navigationdrawer import NavigationLayout
+from kivymd.uix import NavigationLayout
 from kivymd.theming import ThemableBehavior
 
 Builder.load_string(

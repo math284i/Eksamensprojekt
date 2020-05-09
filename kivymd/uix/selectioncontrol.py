@@ -27,13 +27,13 @@ from kivy.utils import get_color_from_hex
 from kivy.uix.behaviors import ButtonBehavior
 from kivy.uix.widget import Widget
 
-from kivymd.color_definitions import colors
+from kivymd import colors
 from kivymd.theming import ThemableBehavior
-from kivymd.uix.behaviors import (
+from kivymd.uix import (
     CircularElevationBehavior,
     CircularRippleBehavior,
 )
-from kivymd.uix.label import MDIcon
+from kivymd.uix import MDIcon
 
 Builder.load_string(
     """

@@ -65,7 +65,7 @@ class MDProgressBar(ThemableBehavior, ProgressBar):
 
 if __name__ == "__main__":
     from kivymd.app import MDApp
-    from kivymd.theming import ThemeManager
+
 
     class ProgressBarApp(MDApp):
         def build(self):

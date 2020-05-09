@@ -144,8 +144,8 @@ from kivy.properties import ObjectProperty, NumericProperty, StringProperty
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.image import Image
 
-from kivymd.uix.button import MDIconButton
-from kivymd.uix.list import (
+from kivymd.uix import MDIconButton
+from kivymd.uix import (
     IRightBodyTouch,
     OneLineAvatarIconListItem,
     ILeftBody,

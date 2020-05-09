@@ -71,7 +71,7 @@ from kivy.properties import (
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.widget import Widget
 
-from kivymd.uix.menu import MDDropdownMenu
+from kivymd.uix import MDDropdownMenu
 from kivymd.theming import ThemableBehavior
 
 Builder.load_string(

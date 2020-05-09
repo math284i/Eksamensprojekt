@@ -22,6 +22,5 @@
 >Udover det, så tjekker den også hvorvidt man nærmer sig en fotovogn eller ej, og starter selv alarm knappen
 
 **Hvad kunne vi have gjort bedre?**
->Der er dog lavet nogle få ændringer hvor knapperne er blevet flyttet lidt og der nu er et kort vist i midten af skærmen hvor man kan se allerede registret fotovogne.
 
 >Der er dog stadig ting der kan forbedres og skal laves før Appen er fuldt funktionel. Appen kan kun registrere specifikke koordinater og har derfor ikke vores ønskede radius som originalt var tænkt. Derudover kan programmet ikke køre på en android telefon endnu, da der er kommer nogle udfordringer i vejen for at vi kunne bruge ”Android Module”.

@@ -3,7 +3,7 @@ from firebase_admin import credentials
 from firebase_admin import db
 
 """Connection to firebase-database"""
-cred = credentials.Certificate("src/eksamensproject-firebase-adminsdk-qsqlg-134386dbd0.json")
+cred = credentials.Certificate("eksamensproject-firebase-adminsdk-qsqlg-134386dbd0.json")
 firebase_admin.initialize_app(cred, {
     'databaseURL': 'https://eksamensproject.firebaseio.com/'
 })

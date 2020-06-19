@@ -12,28 +12,6 @@ class Logic():
 
 
     def FotoVognSpotted(self, lat, lon): #takes 2 argument, the gps koods
-        """What should it be doing?
-
-        1) Call Database with lat and lon, check if they are already there
-
-            If they aren't there, call add function from DBFunctions, which will add them, with the standards values
-            break
-
-            If they are in database, check how many times its been visited, then  add 1
-
-        2) If we dident break in 1), we check if the kods.active(its a bool)
-
-            if kods.active
-                :return
-
-            if not, check if kods.visited is higher than the minimum required (its a varialbe)
-
-            if it is higher, then change bool to true
-
-            if not
-                return
-        """
-
         """Koordinat system, it contains lat + a seperater,
          which we decides to be H + lon, and "." is replaced with "X" """
 
@@ -59,16 +37,6 @@ class Logic():
 
     def PlaceFotoVogn(self):
         """Placing all photovagens all ready in db at startup
-        What should it be doing?
-
-        1) pull all Kods from database, using DBFunctions.get_all()
-
-        2) check if kods.active (bool)
-
-        3) if its active, it should be added to the mapview
-
-        Its called, if a koord gets active, so we should place marker and animate our alert button
-
         """
 
         self.ALL = self.DBFunctions.get_all()

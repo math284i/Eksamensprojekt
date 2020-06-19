@@ -48,6 +48,7 @@ class MyApp(App):
 
         self.logic = Logic(self)
         self.MenuFuncs = MenuFunctions(self)
+        self.gpshandler = GpsHandler(self)
         self.offset = 0.001
 
         """initalizing the few colors in kivy binary"""
@@ -60,7 +61,6 @@ class MyApp(App):
         self.mapview = MapView(zoom=15, lat=56.04, lon=12.457) #56.0394 , 12.457
         self.person = MapMarker(lat=self.mapview.lat, lon=self.mapview.lon, source='images/car.png')
         self.mapview.add_marker(self.person)
-        self.gpshandler = GpsHandler(self)
         """Making a layout, as a boxlayout, making it vertical to match our desired design"""
         self.layout = BoxLayout(orientation="vertical")
 

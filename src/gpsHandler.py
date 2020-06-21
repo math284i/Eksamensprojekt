@@ -51,8 +51,8 @@ class GpsHandler():
             self.openGpsAcessPopup()
 
     def openGpsAcessPopup(self):
-        #dialog = MDDialog(title="GPS Error", text="You need to enable GPS access for the app to function properly")
-        #dialog.size_hint = [.8, .8]
-        #dialog.pos_hint = {'center_x': .5, 'center_y': .5}
-        #dialog.open()
+        dialog = MDDialog(title="GPS Error", text="You need to enable GPS access for the app to function properly")
+        dialog.size_hint = [.8, .8]
+        dialog.pos_hint = {'center_x': .5, 'center_y': .5}
+        dialog.open()
         print("Dialog")
